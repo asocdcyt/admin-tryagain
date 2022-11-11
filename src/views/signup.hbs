@@ -1,0 +1,248 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg bg-white navbar-light position-sticky top-0 shadow py-2">
+    <div class="container">
+      <a class="navbar-brand mr-lg-5" href="/" style="color: white;">
+        Minner Crypto
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
+              <i class="ni ni-ui-04 d-lg-none"></i>
+              <span class="nav-link-inner--text">Componentes</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-xl">
+              <div class="dropdown-menu-inner">
+                <a href="./docs/documentacion-minnercrypto.pdf" class="media d-flex align-items-center">
+                  <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                    <i class="ni ni-spaceship"></i>
+                  </div>
+                  <div class="media-body ml-3">
+                    <h6 class="heading text-primary mb-md-1">Observar la documentación</h6>
+                    <p class="description d-none d-md-inline-block mb-0">Puede leer cada articulo relacionado con nuestro sistema innovador.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav align-items-lg-center ml-lg-auto" id="items-nav">
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://www.facebook.com/minnercrypto21/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+              <i class="fa fa-facebook-square"></i>
+              <span class="nav-link-inner--text d-lg-none">Facebook</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://www.instagram.com/theminnercrypto" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="nav-link-inner--text d-lg-none">Instagram</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://twitter.com/theminnercrypto" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+              <i class="fa fa-twitter-square"></i>
+              <span class="nav-link-inner--text d-lg-none">Twitter</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary" href="/">
+              <span class="nav-link-inner--text">Volver al Principio</span>
+            </a>
+          </li>
+          <li class="nav-item d-lg-block">
+            <a href="/login" class="btn btn-primary btn-icon">
+              <span class="btn-inner--icon">
+              </span>
+              <span class="nav-link-inner--text">Iniciar Sesión</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container" style="position: fixed; z-index: 1;">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+    "symbols": [
+      {
+        "proName": "FOREXCOM:SPXUSD",
+        "title": "S&P 500"
+      },
+      {
+        "proName": "FOREXCOM:NSXUSD",
+        "title": "Nasdaq 100"
+      },
+      {
+        "proName": "FX_IDC:EURUSD",
+        "title": "EUR/USD"
+      },
+      {
+        "proName": "BITSTAMP:BTCUSD",
+        "title": "BTC/USD"
+      },
+      {
+        "proName": "BITSTAMP:ETHUSD",
+        "title": "ETH/USD"
+      }
+    ],
+    "showSymbolLogo": false,
+    "colorTheme": "dark",
+    "isTransparent": true,
+    "displayMode": "adaptive",
+    "locale": "es"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+  <!-- End Navbar -->
+  <div class="main-content">
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+    </div>
+    <!-- Page content -->
+    <div class="container mt--8 pb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+          {{#if success_msg }}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+              <span class="alert-text"><strong>¡Enhorabuena! -</strong> {{ success_msg }}</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            {{/if}}
+            {{#if error}}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-support-16"></i></span>
+                <span class="alert-text"><strong>¡Oh no! -</strong> {{error}}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {{/if}}
+            {{#each errors }}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-support-16"></i></span>
+                <span class="alert-text"><strong>¡Oh no! -</strong> {{text}}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {{/each}}
+            {{#if error_msg }}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-support-16"></i></span>
+                <span class="alert-text"><strong>¡Oh no! -</strong> {{error_msg}}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {{/if}}
+          <div class="card bg-secondary border-0 mb-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Registrese con credenciales</small>
+              </div>
+              <form id="signup-form" action="/signup" method="POST">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input type="text" name="username" required class="form-control" placeholder="Cree un usuario..." value="{{username}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                        </div>
+                        <input type="email" name="email" required class="form-control" placeholder="Escriba su Email..." value="{{email}}">
+                      </div>
+                    </div>
+                    <div class="form-group focused">
+                      <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                        <input type="password" name="password" required placeholder="Cree una Contraseña..." class="form-control" value="{{password}}"/>
+                      </div>
+                    </div>
+                    <div class="form-group focused">
+                      <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                        <input type="password" name="confirm_password" required placeholder="Repita su Contraseña..." class="form-control" value="{{confirm_password}}"/>
+                      </div>
+                    </div>
+                    <div class="row my-4">
+                      <div class="col-12">
+                        <div class="custom-control custom-control-alternative custom-checkbox">
+                          <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                          <label class="custom-control-label" for="customCheckRegister"><span>Estoy de acuerdo con la <a href="#">Política de Privacidad</a></span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-center">
+                    <button class="btn btn-primary mt-4">Crear una cuenta</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-6">
+              <a href="#" class="text-light"><small>Forgot password?</small></a>
+            </div>
+            <div class="col-6 text-right">
+              <a href="#" class="text-light"><small>Create new account</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="py-5" id="footer-main">
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2022 -<a href="" target="_blank"> Minner Crypto, Inc</a>.
+          </div>
+        </div>
+        <div class="col-xs-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <li class="nav-item">
+                <a href="/legal" class="nav-link" target="">Aviso Legal</a>
+              </li>
+              <li class="nav-item">
+                <a href="/privacy" class="nav-link" target="">Políticas de Privacidad</a>
+              </li>
+              <li class="nav-item">
+                <a href="/cookies" class="nav-link" target="">Cookies</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </footer>
+
+  

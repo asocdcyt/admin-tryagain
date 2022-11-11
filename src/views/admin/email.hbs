@@ -1,0 +1,146 @@
+<!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-dark border-bottom">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar links -->
+          <img src="/prin/img/admin.png" class="img" height="50vh" alt="">
+          <ul class="navbar-nav align-items-center  ml-md-auto ">
+            <li class="nav-item dropdown">
+              <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                <!-- Dropdown header -->
+                <!-- List group -->
+                <!-- View all -->
+                <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">Crear Email</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="/dash/img/theme/team-4.jpg">
+                  </span>
+                  <div class="media-body  ml-2  d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold" id="idUser"></span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu  dropdown-menu-right ">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Bienvenid@!</h6>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a type="button" data-toggle="modal" data-target="#modalLogout" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Cerrar Sesión</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+      <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content bg-gradient-danger">
+          <div class="modal-header">
+            <h6 class="modal-title" id="modal-title-notification">Se requiere tu atención</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="py-3 text-center">
+              <i class="ni ni-button-power ni-4x"></i>
+              <h4 class="heading mt-4">¿Está seguro que desea cerrar sesión?</h4>
+              <p>Tendrá que iniciar sesión la proxima vez que regrese.</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a type="button" href="/logout" class="btn btn-white">Si, estoy seguro</a>
+            <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">No cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+<!-- Header -->
+    <div class="header bg-gradient-warning pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Crear Email</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="/data">Email</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Crear</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div id="profile-alert"></div>
+      <div class="row">
+        <div class="col-xl-12 order-xl-1">
+          <div class="card">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Datos del Usuario</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form id="passForm">
+                <div class="col-md-12 text-center">
+                  <input type="email" required id="passemail">
+                  <a onclick="resetpass()" class="btn btn-success">Enviar Email</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWsujuDSa-xh5cgDyM1HV_tP9Lqan4m3Y",
+    authDomain: "minnerglobalcheck-7321e.firebaseapp.com",
+    projectId: "minnerglobalcheck-7321e",
+    storageBucket: "minnerglobalcheck-7321e.appspot.com",
+    messagingSenderId: "299017994515",
+    appId: "1:299017994515:web:713576f7f5db92136c5ae6"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const fs = firebase.firestore();
+
+  function resetpass() {
+    const email = passForm["passemail"].value;
+    firebase.auth().sendPasswordResetEmail(email)
+  .then(() => {
+    // Password reset email sent!
+    console.log("Correo enviado.")
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    // ..
+  });
+  }
+</script>
